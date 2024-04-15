@@ -1,4 +1,4 @@
-import {  Nationalize } from "./nationalize.js";
+import { Nationalize } from "./nationalize.js";
 
 // Iš DOM pasiimame HTML elementus
 const nameInput=<HTMLInputElement>document.getElementById("name");
@@ -26,6 +26,7 @@ getInfo.onclick=()=>{
         .then((data:Nationalize)=>{
             nameResult.innerHTML=data.name;
             resultList.innerHTML="";
+            // mums nereikia naudoti Country siuo atveju, nes jo nepanaudosim, jei naudotume irasytume: c:Country (o import jis prisideda automatiskai)
             data.country.forEach((c)=>{
                 const li=document.createElement('li');
                 li.innerHTML=`${c.country_id} = ${(c.probability*100).toFixed(2)}%`;
